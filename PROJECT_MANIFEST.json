@@ -1,0 +1,14 @@
+{
+  "name": "TechValorPK Official Website",
+  "version": "1.0.0",
+  "owner_email": "bjr.xai@gmail.com",
+  "fiverr": "https://www.fiverr.com/tech_valorpk?public_mode=true",
+  "license": "TECHVALORPK PRIVATE SOURCE LICENSE 1.0",
+  "lines": {
+    "index.html": 122,
+    "styles.css": 5061,
+    "script.js": 26,
+    "app.js": 18
+  },
+  "total_code_lines": 5227
+}

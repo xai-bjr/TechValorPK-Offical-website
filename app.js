@@ -1,0 +1,18 @@
+(()=>{"use strict";window.TechValor=window.TechValor||{};
+const T=window.TechValor;
+T.q=(s,r=document)=>r.querySelector(s);
+T.qa=(s,r=document)=>[...r.querySelectorAll(s)];
+T.clamp=(v,min,max)=>Math.min(max,Math.max(min,v));
+T.lerp=(a,b,t)=>a+(b-a)*t;
+T.map=(v,inMin,inMax,outMin,outMax)=>inMax===inMin?outMin:outMin+(outMax-outMin)*(v-inMin)/(inMax-inMin);
+T.reduced=()=>matchMedia("(prefers-reduced-motion:reduce)").matches;
+T.touch=()=>matchMedia("(pointer:coarse)").matches;
+T.debounce=(fn,wait)=>{let timer;return(...args)=>{clearTimeout(timer);timer=setTimeout(()=>fn(...args),wait)}};
+T.throttle=(fn,wait)=>{let last=0;return(...args)=>{const n=Date.now();if(n-last>=wait){last=n;return fn(...args)}}};
+T.ready=fn=>document.readyState==="loading"?document.addEventListener("DOMContentLoaded",fn,{once:true}):fn();
+T.observe=(el,cb,opt)=>{if(!el)return null;if(!("IntersectionObserver"in window)){cb(el);return null}const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)cb(e.target,e)}),opt||{threshold:.2});o.observe(el);return o};
+T.copy=async text=>{try{await navigator.clipboard.writeText(text);return true}catch{return false}};
+T.escape=v=>String(v).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
+T.storage={get(k,f=null){try{const x=localStorage.getItem(k);return x===null?f:JSON.parse(x)}catch{return f}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true}catch{return false}},remove(k){try{localStorage.removeItem(k)}catch{}}};
+T.scrollTo=id=>{const e=document.getElementById(id);if(!e)return false;e.scrollIntoView({behavior:"smooth"});return true};
+})();
